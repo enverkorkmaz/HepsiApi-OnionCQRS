@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HepsiApi.Persistence", "Inf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HepsiApi.Api", "Presentation\HepsiApi.Api\HepsiApi.Api.csproj", "{6D4BEF4A-9DC6-4E92-9300-E7723772EA03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HepsiApi.Mapper", "Core\HepsiApi.Mapper\HepsiApi.Mapper.csproj", "{5728CD57-CAD9-4544-BBDE-397EC134BCCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HepsiApi.Mapper", "Core\HepsiApi.Mapper\HepsiApi.Mapper.csproj", "{5728CD57-CAD9-4544-BBDE-397EC134BCCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
