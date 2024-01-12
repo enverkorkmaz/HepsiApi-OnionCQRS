@@ -1,4 +1,7 @@
 using HepsiApi.Persistence;
+using HepsiApi.Application;
+using HepsiApi.Mapper;
+using HepsiApi.Application.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +20,9 @@ builder.Configuration
     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
 builder.Services.AddPersistance(builder.Configuration);
+builder.Services.AddApplication();
+builder.Services.AddCustomMapper();
+
 
 var app = builder.Build();
 
@@ -27,6 +33,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+app.ConfigureExceptionHandlingMiddleware();
 app.UseAuthorization();
 
 app.MapControllers();
