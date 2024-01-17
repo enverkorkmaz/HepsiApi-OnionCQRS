@@ -1,8 +1,11 @@
-﻿using HepsiApi.Application.Features.Products.Command.CreateProduct;
+﻿using HepsiApi.Application.Features.Brands.Commands.CreateBrand;
+using HepsiApi.Application.Features.Brands.Queries.GetAllBrands;
+using HepsiApi.Application.Features.Products.Command.CreateProduct;
 using HepsiApi.Application.Features.Products.Command.DeleteProduct;
 using HepsiApi.Application.Features.Products.Command.UpdateProduct;
 using HepsiApi.Application.Features.Products.Queries.GetAllProducts;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +22,7 @@ namespace HepsiApi.Api.Controllers
             this.mediator = mediator;
         }
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllProducts()
         {
             var response = await mediator.Send(new GetAllProductsQueryRequest());
@@ -41,6 +45,19 @@ namespace HepsiApi.Api.Controllers
         {
             await mediator.Send(request);
             return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateBrandTest(CreateBrandCommandRequest request)
+        {
+            await mediator.Send(request);
+            return Ok();
+        }
+        [HttpGet]
+        //[Authorize]
+        public async Task<IActionResult> GetAllBrands()
+        {
+            var response = await mediator.Send(new GetAllBrandsQueryRequest());
+            return Ok(response);
         }
     }
 }

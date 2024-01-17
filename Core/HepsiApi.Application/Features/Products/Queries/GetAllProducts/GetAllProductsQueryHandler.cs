@@ -31,7 +31,7 @@ namespace HepsiApi.Application.Features.Products.Queries.GetAllProducts
             var map = mapper.Map<GetAllProductsQueryResponse, Product>(products);
             foreach (var item in map)
                 item.Price -= (item.Price * item.Discount / 100);
-            throw new Exception("hata mesajı");
+            return map;
 
         }
     }
